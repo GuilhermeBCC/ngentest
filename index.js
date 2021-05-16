@@ -147,7 +147,7 @@ function run (tsFile) {
 
     // replace invalid require statements
     let replacedOutputText = result.outputText
-      .replace(/require\("\.(.*)"\)/gm, '{}') // replace require statement to a variable, {}
+      .replace(/require\(.+\..+\)/gm, '{}') // replace require statement to a variable, {}
       .replace(/super\(.*\);/gm, '') // remove inheritance code
       .replace(/super\./gm, 'this.') // change inheritance call to this call
       .replace(/\s+extends\s\S+ {/gm, ' extends Object {') // rchange inheritance to an Object
